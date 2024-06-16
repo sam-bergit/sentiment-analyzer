@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analyzer Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Sentiment Analyzer Results</h1>
-    <!-- Table to display the results -->
     <table border="1">
         <tr>
             <th>Text</th>
             <th>Sentiment</th>
+            <th>Subjectivity</th>
         </tr>
-        {% for text, sentiment in results %}
+        {% for text, sentiment, subjectivity in results %}
         <tr>
             <td>{{ text }}</td>
             <td>{{ sentiment }}</td>
+            <td>{{ subjectivity }}</td>
         </tr>
         {% endfor %}
     </table>
-    <!-- Link to go back to the home page -->
     <a href="/">Analyze another text or file</a>
 </body>
 </html>
