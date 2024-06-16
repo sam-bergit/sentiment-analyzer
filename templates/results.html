@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analyzer Results</title>
+</head>
+<body>
+    <h1>Sentiment Analyzer Results</h1>
+    <!-- Table to display the results -->
+    <table border="1">
+        <tr>
+            <th>Text</th>
+            <th>Sentiment</th>
+        </tr>
+        {% for text, sentiment in results %}
+        <tr>
+            <td>{{ text }}</td>
+            <td>{{ sentiment }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- Link to go back to the home page -->
+    <a href="/">Analyze another text or file</a>
+</body>
+</html>

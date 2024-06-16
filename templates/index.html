@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analyzer</title>
+</head>
+<body>
+    <h1>Sentiment Analyzer</h1>
+    <!-- Form to input text directly or upload a CSV file -->
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <!-- Textarea for direct text input -->
+        <textarea name="text" rows="10" cols="30" placeholder="Enter text here"></textarea>
+        <br>
+        <!-- File input for uploading CSV files -->
+        <input type="file" name="file" accept=".csv">
+        <br>
+        <!-- Submit button to send the form data for analysis -->
+        <input type="submit" value="Analyze Sentiment">
+    </form>
+</body>
+</html>
