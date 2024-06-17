@@ -27,6 +27,7 @@ def home():
 def analyze():
     results = []
     rake = Rake()  # Initialize RAKE
+
     # Check if text is submitted through the form
     if 'text' in request.form and request.form['text'].strip() != "":
         text = request.form['text']  # Get the text from the form
@@ -38,7 +39,7 @@ def analyze():
         rake.extract_keywords_from_text(text)
         keywords = ', '.join(rake.get_ranked_phrases())
         results.append((text, sentiment, subjectivity, keywords))  # Store the result as a list of tuples
-    
+
     # Check if a file is submitted through the form
     elif 'file' in request.files:
         file = request.files['file']  # Get the file from the form
@@ -48,6 +49,11 @@ def analyze():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)  # Define the file path
         file.save(file_path)  # Save the file to the upload folder
         data = pd.read_csv(file_path)  # Read the CSV file into a DataFrame
+
+        # Check if the required 'text' column is present
+        if 'text' not in data.columns:
+            return "CSV file must have a 'text' column"  # Return a message if the 'text' column is missing
+
         # Iterate over each text entry in the DataFrame and analyze sentiment, subjectivity, and keywords
         for text in data['text']:
             blob = TextBlob(text)  # Create a TextBlob object for each text
