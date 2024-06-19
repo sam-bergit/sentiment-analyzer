@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analysis Log</title>
+    <title>Analysis Log</title>
 </head>
 <body>
-    <h1>Sentiment Analysis Log</h1>
+    <h1>Analysis Log</h1>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -16,21 +16,19 @@
             <th>Subjectivity</th>
             <th>Keywords</th>
             <th>User</th>
-            <th>Total Uses</th>
         </tr>
         {% for entry in log_entries %}
         <tr>
-            <td>{{ entry['ID'] }}</td>
-            <td>{{ entry['Date/Time'] }}</td>
-            <td>{{ entry['Text'] }}</td>
-            <td>{{ entry['Sentiment'] }}</td>
-            <td>{{ entry['Subjectivity'] }}</td>
-            <td>{{ entry['Keywords'] }}</td>
-            <td>{{ entry['User'] }}</td>
-            <td>{{ entry['Total Uses'] }}</td>
+            <td>{{ entry.id }}</td>
+            <td>{{ entry.date_time }}</td>
+            <td>{{ entry.text }}</td>
+            <td>{{ entry.sentiment }}</td>
+            <td>{{ entry.subjectivity }}</td>
+            <td>{{ entry.keywords }}</td>
+            <td>{{ entry.user }}</td>
         </tr>
         {% endfor %}
     </table>
-    <a href="/">Go back to Home</a>
+    <a href="/">Analyze another text or file</a>
 </body>
 </html>
