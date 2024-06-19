@@ -14,13 +14,15 @@
             <th>Sentiment</th>
             <th>Subjectivity</th>
             <th>Keywords</th>
+            <th>Language</th>
         </tr>
-        {% for text, sentiment, subjectivity, keywords in results %}
+        {% for text, sentiment, subjectivity, keywords, language in results %}
         <tr>
             <td>{{ text }}</td>
             <td>{{ sentiment }}</td>
             <td>{{ subjectivity }}</td>
             <td>{{ keywords }}</td>
+            <td>{{ language }}</td>
         </tr>
         {% endfor %}
     </table>
