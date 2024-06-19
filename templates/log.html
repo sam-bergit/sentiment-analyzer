@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analysis Log</title>
+    <title>Analysis Log</title>
 </head>
 <body>
-    <h1>Sentiment Analysis Log</h1>
+    <h1>Analysis Log</h1>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -16,6 +16,7 @@
             <th>Subjectivity</th>
             <th>Keywords</th>
             <th>Language</th>
+            <th>Character Count</th>
             <th>User</th>
             <th>Total Uses</th>
         </tr>
@@ -28,11 +29,12 @@
             <td>{{ entry.subjectivity }}</td>
             <td>{{ entry.keywords }}</td>
             <td>{{ entry.language }}</td>
+            <td>{{ entry.character_count }}</td>
             <td>{{ entry.user }}</td>
             <td>{{ entry.total_uses }}</td>
         </tr>
         {% endfor %}
     </table>
-    <a href="/">Back to Home</a>
+    <a href="/">Go back to Home</a>
 </body>
 </html>
