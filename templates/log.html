@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Log</title>
+</head>
+<body>
+    <h1>Sentiment Analysis Log</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Date/Time</th>
+            <th>Text</th>
+            <th>Sentiment</th>
+            <th>Subjectivity</th>
+            <th>Keywords</th>
+            <th>User</th>
+            <th>Total Uses</th>
+        </tr>
+        {% for entry in log_entries %}
+        <tr>
+            <td>{{ entry['ID'] }}</td>
+            <td>{{ entry['Date/Time'] }}</td>
+            <td>{{ entry['Text'] }}</td>
+            <td>{{ entry['Sentiment'] }}</td>
+            <td>{{ entry['Subjectivity'] }}</td>
+            <td>{{ entry['Keywords'] }}</td>
+            <td>{{ entry['User'] }}</td>
+            <td>{{ entry['Total Uses'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Go back to Home</a>
+</body>
+</html>
