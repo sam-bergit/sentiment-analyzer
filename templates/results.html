@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analyzer Results</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Sentiment Analyzer Results</h1>
-    <table border="1">
-        <tr>
-            <th>Text</th>
-            <th>Sentiment</th>
-            <th>Subjectivity</th>
-            <th>Keywords</th>
-            <th>Language</th>
-            <th>Character Count</th>
-        </tr>
-        {% for text, sentiment, subjectivity, keywords, language, character_count in results %}
-        <tr>
-            <td>{{ text }}</td>
-            <td>{{ sentiment }}</td>
-            <td>{{ subjectivity }}</td>
-            <td>{{ keywords }}</td>
-            <td>{{ language }}</td>
-            <td>{{ character_count }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="/">Analyze another text or file</a>
+    <div class="container mt-5">
+        <h1 class="text-center">Sentiment Analyzer Results</h1>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Text</th>
+                    <th>Sentiment</th>
+                    <th>Subjectivity</th>
+                    <th>Keywords</th>
+                    <th>Language</th>
+                    <th>Character Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for text, sentiment, subjectivity, keywords, language, character_count in results %}
+                <tr>
+                    <td>{{ text }}</td>
+                    <td>{{ sentiment }}</td>
+                    <td>{{ subjectivity }}</td>
+                    <td>{{ keywords }}</td>
+                    <td>{{ language }}</td>
+                    <td>{{ character_count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn btn-secondary">Analyze another text or file</a>
+    </div>
 </body>
 </html>

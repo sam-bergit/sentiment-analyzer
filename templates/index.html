@@ -4,21 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analyzer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        #char-count {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-top: 5px;
+            display: block;
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sentiment Analyzer</h1>
-    <!-- Form to input text directly or upload a CSV file -->
-    <form action="/analyze" method="post" enctype="multipart/form-data">
-        <!-- Textarea for direct text input -->
-        <textarea name="text" rows="10" cols="30" placeholder="Enter text here"></textarea>
+    <div class="container mt-5">
+        <h1 class="text-center">Sentiment Analyzer</h1>
+        <form id="analyze-form" action="/analyze" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <textarea id="text-input" name="text" class="form-control" rows="10" placeholder="Enter text here" data-toggle="tooltip" title="Type or paste your text here for analysis."></textarea>
+                <small id="char-count" class="form-text text-muted">Characters: 0</small>
+            </div>
+            <div class="form-group">
+                <input type="file" name="file" class="form-control-file" accept=".csv" data-toggle="tooltip" title="Upload a CSV file containing text data for analysis.">
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze Sentiment</button>
+        </form>
         <br>
-        <!-- File input for uploading CSV files -->
-        <input type="file" name="file" accept=".csv">
-        <br>
-        <!-- Submit button to send the form data for analysis -->
-        <input type="submit" value="Analyze Sentiment">
-    </form>
-    <br>
-    <a href="/log">View Analysis Log</a>
+        <a href="/log" class="btn btn-secondary" data-toggle="tooltip" title="View the analysis log.">View Analysis Log</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Animate the form on load
+            $('form').hide().fadeIn(1000);
+
+            // Real-time form validation
+            $('#text-input').on('input', function () {
+                var charCount = this.value.length;
+                $('#char-count').text('Characters: ' + charCount);
+
+                if (charCount > 0) {
+                    $(this).addClass('is-valid').removeClass('is-invalid');
+                } else {
+                    $(this).addClass('is-invalid').removeClass('is-valid');
+                }
+            });
+
+            // Tooltip initialization
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 </html>
