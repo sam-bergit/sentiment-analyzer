@@ -109,4 +109,4 @@ def display_log():
     return render_template('log.html', log_entries=log_entries)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8000)
