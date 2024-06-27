@@ -2,6 +2,6 @@ Flask==2.1.2
 textblob==0.15.3
 pandas==1.4.2
 werkzeug==2.1.2
-rake-nltk==1.0.4
+rake-nltk==1.0.6
 langdetect==1.0.9
 flask_sqlalchemy==2.5.1
